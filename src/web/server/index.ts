@@ -8,6 +8,7 @@ import { audioRouter } from './routes/audio';
 import { prepareRouter } from './routes/prepare';
 import { exportRouter } from './routes/export';
 import { oauthRouter } from './routes/oauth';
+import { hyperframesRouter } from './routes/hyperframes';
 
 export function createApp() {
   const app = express();
@@ -19,6 +20,7 @@ export function createApp() {
   app.use('/api/episodes', audioRouter);
   app.use('/api/episodes', prepareRouter);
   app.use('/api/episodes', exportRouter);
+  app.use('/api/episodes', hyperframesRouter);
   app.use('/oauth/youtube', oauthRouter);
   app.get('/api/episodes/:epId/studio-port', async (req, res) => {
     const { ensureStudio } = await import('./lib/studio-launcher');

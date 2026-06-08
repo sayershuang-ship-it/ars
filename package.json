@@ -41,6 +41,7 @@
     "tsconfig.json"
   ],
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.102.0",
     "@dagrejs/dagre": "^2.0.4",
     "@remotion/cli": "4.0.435",
     "@remotion/google-fonts": "4.0.435",
@@ -49,6 +50,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "hyperframes": "^0.6.81",
     "mermaid": "^11.12.2",
     "openai": "^6.35.0",
     "prism-react-renderer": "^2.4.1",

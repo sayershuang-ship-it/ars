@@ -51,6 +51,21 @@ export async function getStudioPort(epId: string): Promise<{ port: number }> {
   return res.json();
 }
 
+export async function getHfHtml(epId: string): Promise<{ html: string }> {
+  const res = await fetch(`${BASE}/api/episodes/${epId}/hyperframes/html`);
+  if (!res.ok) throw new Error('No HyperFrames HTML');
+  return res.json();
+}
+
+export async function saveHfHtml(epId: string, html: string): Promise<void> {
+  const res = await fetch(`${BASE}/api/episodes/${epId}/hyperframes/html`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ html }),
+  });
+  if (!res.ok) throw new Error('Failed to save HTML');
+}
+
 export function openSse(
   url: string,
   onEvent: (data: Record<string, unknown>) => void,
