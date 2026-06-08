@@ -3,7 +3,8 @@ import cors from 'cors';
 
 export function createApp() {
   const app = express();
-  app.use(cors());
+  app.disable('x-powered-by');
+  app.use(cors({ origin: /^https?:\/\/localhost(:\d+)?$/ }));
   app.use(express.json());
   app.get('/health', (_req, res) => { res.json({ ok: true }); });
   return app;
