@@ -76,6 +76,7 @@
     "@types/supertest": "^7.2.0",
     "@types/web": "^0.0.345",
     "@vitejs/plugin-react": "^5.1.3",
+    "concurrently": "^10.0.3",
     "eslint": "9.19.0",
     "react-router-dom": "^7.17.0",
     "supertest": "^7.2.2",
@@ -93,6 +94,7 @@
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
     "test": "vitest run",
+    "dev:web": "concurrently \"tsx src/web/server/index.ts\" \"vite --config src/web/dashboard/vite.config.ts\"",
     "dev:studio": "vite --config vite.studio.config.ts",
     "build:studio": "vite build --config vite.studio.config.ts",
     "preview:studio": "vite preview --config vite.studio.config.ts"
