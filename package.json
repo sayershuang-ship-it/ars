@@ -97,6 +97,7 @@
     "dev:web": "concurrently \"tsx src/web/server/index.ts\" \"vite --config src/web/dashboard/vite.config.ts\"",
     "dev:studio": "vite --config vite.studio.config.ts",
     "build:studio": "vite build --config vite.studio.config.ts",
+    "build:web": "vite build --config src/web/dashboard/vite.config.ts",
     "preview:studio": "vite preview --config vite.studio.config.ts"
   },
   "sideEffects": [

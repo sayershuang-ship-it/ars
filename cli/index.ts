@@ -23,6 +23,7 @@ const KNOWN_COMMANDS = new Set([
   'competitor',
   'doctor',
   'episode',
+  'generate-image',
   'export',
   'init',
   'launch',
@@ -35,6 +36,7 @@ const KNOWN_COMMANDS = new Set([
   'update',
   'config',
   'upload',
+  'web',
   'workstate',
 ]);
 
@@ -62,10 +64,12 @@ Commands:
   prepare <subcommand> [...]       Prepare release assets and metadata context
   publish <subcommand> [...]       Package and publish outputs
   audio <subcommand> [...]         Audio/TTS workflows
+  generate-image <epId> [options] Generate AI images for episode assets via OpenAI
   review <subcommand> [...]        (deprecated alias) Forward to ars studio
   studio <epId> [--phase ...]      Open Studio shell + manage Studio intents
   export <subcommand> [...]        Export cover or subtitle artifacts
   upload <subcommand> [...]        Upload to YouTube
+  web [options]                    Start the ARS web dashboard
   workstate <subcommand> [...]     Read or write workstate stage
   analytics <subcommand> [...]     Query YouTube analytics (JSON snapshot for tooling)
   competitor <subcommand> [...]    Helper for /ars:reflect: YouTube competitor/topic research JSON
@@ -93,6 +97,8 @@ async function loadCommandModule(command: string): Promise<CommandModule> {
       return import('./commands/doctor');
     case 'episode':
       return import('./commands/episode');
+    case 'generate-image':
+      return import('./commands/generate-image');
     case 'export':
       return import('./commands/export');
     case 'init':
@@ -111,6 +117,8 @@ async function loadCommandModule(command: string): Promise<CommandModule> {
       return import('./commands/update');
     case 'upload':
       return import('./commands/upload');
+    case 'web':
+      return import('./commands/web');
     case 'workstate':
       return import('./commands/workstate');
     default:

@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import fs from 'fs';
 import { episodesRouter } from './routes/episodes';
 import { planRouter } from './routes/plan';
 import { audioRouter } from './routes/audio';
@@ -28,6 +30,15 @@ export function createApp() {
     }
   });
   app.get('/health', (_req, res) => { res.json({ ok: true }); });
+
+  // Serve built dashboard (production)
+  const distDir = path.join(process.cwd(), 'dist', 'dashboard');
+  if (fs.existsSync(distDir)) {
+    app.use(express.static(distDir));
+    // SPA fallback: serve index.html for client-side routing
+    app.use((_req, res) => res.sendFile(path.join(distDir, 'index.html')));
+  }
+
   return app;
 }
 
