@@ -21,11 +21,18 @@ export function runCli(
       cwd: process.cwd(),
       env: { ...process.env },
     });
-    const emit = (chunk: Buffer) =>
-      chunk.toString().split('\n').filter(Boolean).forEach(onLine);
+    let remainder = '';
+    const emit = (chunk: Buffer) => {
+      const parts = (remainder + chunk.toString()).split('\n');
+      remainder = parts.pop() ?? '';
+      parts.filter(Boolean).forEach(onLine);
+    };
     proc.stdout.on('data', emit);
     proc.stderr.on('data', emit);
-    proc.on('close', (code) => resolve(code ?? 0));
+    proc.on('close', (code) => {
+      if (remainder) onLine(remainder);
+      resolve(code ?? 0);
+    });
     proc.on('error', reject);
   });
 }
