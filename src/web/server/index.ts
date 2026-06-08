@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { episodesRouter } from './routes/episodes';
+import { planRouter } from './routes/plan';
 
 export function createApp() {
   const app = express();
@@ -8,6 +9,7 @@ export function createApp() {
   app.use(cors({ origin: /^https?:\/\/localhost(:\d+)?$/ }));
   app.use(express.json());
   app.use('/api/episodes', episodesRouter);
+  app.use('/api/episodes', planRouter);
   app.get('/health', (_req, res) => { res.json({ ok: true }); });
   return app;
 }
