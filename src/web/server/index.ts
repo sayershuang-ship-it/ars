@@ -1,11 +1,13 @@
 import express from 'express';
 import cors from 'cors';
+import { episodesRouter } from './routes/episodes';
 
 export function createApp() {
   const app = express();
   app.disable('x-powered-by');
   app.use(cors({ origin: /^https?:\/\/localhost(:\d+)?$/ }));
   app.use(express.json());
+  app.use('/api/episodes', episodesRouter);
   app.get('/health', (_req, res) => { res.json({ ok: true }); });
   return app;
 }
