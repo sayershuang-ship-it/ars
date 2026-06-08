@@ -7,6 +7,7 @@ import Audio from './pages/Audio';
 import Review from './pages/Review';
 import Prepare from './pages/Prepare';
 import Export from './pages/Export';
+import HyperFrames from './pages/HyperFrames';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/episodes/:epId/review" element={<Review />} />
           <Route path="/episodes/:epId/prepare" element={<Prepare />} />
           <Route path="/episodes/:epId/export" element={<Export />} />
+          <Route path="/episodes/:epId/hyperframes" element={<HyperFrames />} />
         </Routes>
       </main>
     </div>

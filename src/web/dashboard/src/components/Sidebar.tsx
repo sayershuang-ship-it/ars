@@ -8,6 +8,7 @@ function EpisodePhases({ epId }: { epId: string }) {
     { to: `/episodes/${epId}/review`, label: 'Review' },
     { to: `/episodes/${epId}/prepare`, label: 'Prepare' },
     { to: `/episodes/${epId}/export`, label: 'Export' },
+    { to: `/episodes/${epId}/hyperframes`, label: 'HyperFrames' },
   ];
   return (
     <>
