@@ -20,5 +20,8 @@ oauthRouter.post('/authorize', (req, res) => {
     const status = youtubeCredentialStatus();
     sendSse(res, { phase: 'oauth', status: code === 0 ? 'complete' : 'error', ...status });
     res.end();
+  }).catch((err) => {
+    sendSse(res, { phase: 'oauth', status: 'error', message: String(err) });
+    res.end();
   });
 });

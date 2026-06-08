@@ -24,6 +24,9 @@ exportRouter.post('/:epId/render', (req, res) => {
       outputExists: fs.existsSync(mp4),
     });
     res.end();
+  }).catch((err) => {
+    sendSse(res, { phase: 'render', status: 'error', message: String(err) });
+    res.end();
   });
 });
 
@@ -43,6 +46,9 @@ exportRouter.post('/:epId/publish', (req, res) => {
     sendSse(res, { phase: 'publish', raw: line });
   }).then((code) => {
     sendSse(res, { phase: 'publish', status: code === 0 ? 'complete' : 'error', code });
+    res.end();
+  }).catch((err) => {
+    sendSse(res, { phase: 'publish', status: 'error', message: String(err) });
     res.end();
   });
 });
