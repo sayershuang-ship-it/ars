@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "installedAt": "2026-05-03T14:08:49.010Z",
+  "lastUpdatedAt": "2026-05-03T14:08:49.010Z",
+  "installMethod": "source",
+  "sourceCommit": "4a9abbf6450161b6833b2404f766d1abed1759a5",
+  "sourcePath": "/Users/shouwan/projects/ars-image-studio",
+  "pluginVersion": "0.1.0",
+  "engineSource": "src/engine",
+  "configSchemaVersion": 2
+}

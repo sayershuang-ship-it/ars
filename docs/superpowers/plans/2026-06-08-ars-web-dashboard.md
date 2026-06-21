@@ -68,8 +68,11 @@ tests/web/
 ### Task 1: Install dependencies + vitest coverage + health check
 
 **Files:**
+
 - Modify: `package.json`
+
 - Modify: `vitest.config.ts`
+
 - Create: `src/web/server/index.ts`
 
 - [ ] **Step 1: Install server deps**
@@ -179,7 +182,9 @@ git commit -m "feat(web): Express server scaffold with health check"
 ### Task 2: `cli-runner.ts` — spawn ARS CLI + SSE pipe
 
 **Files:**
+
 - Create: `src/web/server/lib/cli-runner.ts`
+
 - Create: `tests/web/server/cli-runner.test.ts`
 
 - [ ] **Step 1: Write failing test**
@@ -297,7 +302,9 @@ git commit -m "feat(web/server): cli-runner SSE pipe helper"
 ### Task 3: `env-reader.ts` — read `.env` for OAuth status
 
 **Files:**
+
 - Create: `src/web/server/lib/env-reader.ts`
+
 - Create: `tests/web/server/env-reader.test.ts`
 
 - [ ] **Step 1: Write failing test**
@@ -400,8 +407,11 @@ git commit -m "feat(web/server): env-reader for OAuth credential status"
 ### Task 4: Episodes routes
 
 **Files:**
+
 - Create: `src/web/server/routes/episodes.ts`
+
 - Create: `tests/web/server/routes/episodes.test.ts`
+
 - Modify: `src/web/server/index.ts`
 
 - [ ] **Step 1: Write failing tests**
@@ -540,8 +550,11 @@ git commit -m "feat(web/server): episodes routes GET /"
 ### Task 5: Plan routes
 
 **Files:**
+
 - Create: `src/web/server/routes/plan.ts`
+
 - Create: `tests/web/server/routes/plan.test.ts`
+
 - Modify: `src/web/server/index.ts`
 
 - [ ] **Step 1: Write failing tests**
@@ -638,7 +651,9 @@ git commit -m "feat(web/server): plan routes GET + PUT"
 ### Task 6: Audio route (SSE)
 
 **Files:**
+
 - Create: `src/web/server/routes/audio.ts`
+
 - Modify: `src/web/server/index.ts`
 
 - [ ] **Step 1: Create `src/web/server/routes/audio.ts`**
@@ -711,7 +726,9 @@ git commit -m "feat(web/server): audio SSE route"
 ### Task 7: Prepare routes
 
 **Files:**
+
 - Create: `src/web/server/routes/prepare.ts`
+
 - Modify: `src/web/server/index.ts`
 
 - [ ] **Step 1: Create `src/web/server/routes/prepare.ts`**
@@ -782,7 +799,9 @@ git commit -m "feat(web/server): prepare routes (generate + get + select)"
 ### Task 8: Export routes (render + download + publish)
 
 **Files:**
+
 - Create: `src/web/server/routes/export.ts`
+
 - Modify: `src/web/server/index.ts`
 
 - [ ] **Step 1: Create `src/web/server/routes/export.ts`**
@@ -857,9 +876,13 @@ git commit -m "feat(web/server): export routes (render SSE + download + publish 
 ### Task 9: OAuth routes + studio-launcher
 
 **Files:**
+
 - Create: `src/web/server/routes/oauth.ts`
+
 - Create: `src/web/server/lib/studio-launcher.ts`
+
 - Modify: `src/web/server/index.ts`
+
 - Create: `tests/web/server/routes/oauth.test.ts`
 
 - [ ] **Step 1: Write failing OAuth status test**
@@ -1017,10 +1040,15 @@ git commit -m "feat(web/server): OAuth status + authorize routes + Studio launch
 ### Task 10: Dashboard Vite config + React entry
 
 **Files:**
+
 - Create: `src/web/dashboard/index.html`
+
 - Create: `src/web/dashboard/vite.config.ts`
+
 - Create: `src/web/dashboard/src/main.tsx`
+
 - Create: `src/web/dashboard/src/App.tsx`
+
 - Modify: `package.json` (add dev:web script)
 
 - [ ] **Step 1: Create `src/web/dashboard/index.html`**
@@ -1116,11 +1144,13 @@ export default function App() {
 - [ ] **Step 5: Add dev:web script to `package.json`**
 
 In the `"scripts"` block, add:
+
 ```json
 "dev:web": "concurrently \"tsx src/web/server/index.ts\" \"vite --config src/web/dashboard/vite.config.ts\""
 ```
 
 Install concurrently:
+
 ```bash
 npm install --save-dev concurrently
 ```
@@ -1146,8 +1176,11 @@ git commit -m "feat(web/dashboard): Vite + React + React Router scaffold"
 ### Task 11: API client + Sidebar + ProgressStream hook
 
 **Files:**
+
 - Create: `src/web/dashboard/src/api.ts`
+
 - Create: `src/web/dashboard/src/components/Sidebar.tsx`
+
 - Create: `src/web/dashboard/src/components/ProgressStream.tsx`
 
 - [ ] **Step 1: Create `src/web/dashboard/src/api.ts`**
@@ -1332,7 +1365,9 @@ git commit -m "feat(web/dashboard): api client + Sidebar + ProgressStream"
 ### Task 12: Episodes + Plan pages
 
 **Files:**
+
 - Create: `src/web/dashboard/src/pages/Episodes.tsx`
+
 - Create: `src/web/dashboard/src/pages/Plan.tsx`
 
 - [ ] **Step 1: Create `src/web/dashboard/src/pages/Episodes.tsx`**
@@ -1417,7 +1452,9 @@ git commit -m "feat(web/dashboard): Episodes + Plan pages"
 ### Task 13: Audio + Review pages
 
 **Files:**
+
 - Create: `src/web/dashboard/src/pages/Audio.tsx`
+
 - Create: `src/web/dashboard/src/pages/Review.tsx`
 
 - [ ] **Step 1: Create `src/web/dashboard/src/pages/Audio.tsx`**
@@ -1505,8 +1542,11 @@ git commit -m "feat(web/dashboard): Audio + Review pages"
 ### Task 14: Prepare + Export pages
 
 **Files:**
+
 - Create: `src/web/dashboard/src/pages/Prepare.tsx`
+
 - Create: `src/web/dashboard/src/pages/Export.tsx`
+
 - Create: `src/web/dashboard/src/components/YoutubeStatus.tsx`
 
 - [ ] **Step 1: Create `src/web/dashboard/src/components/YoutubeStatus.tsx`**
@@ -1695,6 +1735,7 @@ git commit -m "feat(web/dashboard): Prepare + Export pages + YoutubeStatus"
 ### Task 15: HyperFrames backend — generate HTML + render + download
 
 **Files:**
+
 - Create: `src/web/server/routes/hyperframes.ts`
 - Modify: `src/web/server/index.ts`
 
@@ -1947,8 +1988,11 @@ git commit -m "feat(web): HyperFrames backend — generate HTML via Claude + ren
 ### Task 16: HyperFrames frontend page + Sidebar update
 
 **Files:**
+
 - Create: `src/web/dashboard/src/pages/HyperFrames.tsx`
+
 - Modify: `src/web/dashboard/src/components/Sidebar.tsx`
+
 - Modify: `src/web/dashboard/src/App.tsx`
 
 - [ ] **Step 1: Create `src/web/dashboard/src/pages/HyperFrames.tsx`**
@@ -2085,8 +2129,11 @@ npm run dev:web
 ```
 
 Open `http://localhost:3000/episodes/ep001/hyperframes`. Click "Generate from Episode". Expect:
+
 - A call to Claude, HTML appears in the editor within ~10s
+
 - Click "Render Video", SSE stream shows HyperFrames render progress
+
 - Download button appears on completion
 
 - [ ] **Step 5: Commit**
@@ -2101,9 +2148,13 @@ git commit -m "feat(web/dashboard): HyperFrames page — generate HTML via Claud
 ### Task 17: `ars web` CLI command + production build
 
 **Files:**
+
 - Create: `cli/commands/web.ts`
+
 - Modify: `cli/index.ts`
+
 - Modify: `src/web/server/index.ts` (serve built dashboard)
+
 - Modify: `package.json` (add build:web script)
 
 - [ ] **Step 1: Add `build:web` script to `package.json`**
@@ -2231,6 +2282,7 @@ case 'web':
 ```
 
 Also add to the help text:
+
 ```
 web [--port <num>] [--open]          Start local web dashboard
 ```

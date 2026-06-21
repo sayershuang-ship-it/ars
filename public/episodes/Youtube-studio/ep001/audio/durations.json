@@ -1,0 +1,17 @@
+{
+  "durations": {
+    "location": 9.9,
+    "prep-altar": 8.6,
+    "prep-incense": 6.5,
+    "prep-ceremony": 7.8,
+    "climax-crowd": 5.1,
+    "climax-firecrackers": 6.2,
+    "climax-performance": 8.0,
+    "humanity-food": 9.8,
+    "humanity-meal": 6.7,
+    "humanity-people": 10.2,
+    "closing": 5.5
+  },
+  "speed": 0.8,
+  "instruct": "男，中年，低音调"
+}
