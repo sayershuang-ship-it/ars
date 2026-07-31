@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "agentic_stack_version": "0.19.0",
+  "abs_target": "/Users/shouwan/projects/ars-image-studio",
+  "installed_at": "2026-07-31T18:50:05Z",
+  "adapters": {
+    "hermes": {
+      "installed_at": "2026-07-31T18:50:05Z",
+      "files_written": [],
+      "files_overwritten": [],
+      "files_alerted": [
+        "AGENTS.md"
+      ],
+      "file_results": [
+        {
+          "dst": "AGENTS.md",
+          "result": "merge_alert"
+        }
+      ],
+      "post_install_results": []
+    }
+  }
+}
