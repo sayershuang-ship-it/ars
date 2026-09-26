@@ -1,9 +1,9 @@
 /**
  * @command generate-image
- * @description Generate AI images using OpenAI GPT Image 2 for episode assets.
+ * @description Generate AI images using OpenAI GPT Image 2.5 for episode assets.
  *
  * Usage:
- *   npx ars generate-image <epId> --prompt "..." [--size WxH] [--quality low|medium|high] [--count N] [--step <id>]
+ *   npx ars generate-image <epId> --prompt "..." [--size WxH] [--quality low|medium|high] [--model sunburst|flare] [--count N] [--step <id>]
  */
 import dotenv from "dotenv";
 import path from "path";
@@ -11,6 +11,7 @@ import { createImageGenAdapter } from "../../src/adapters/image-gen/registry";
 import type {
   ImageGenSize,
   ImageGenQuality,
+  ImageGenModel,
 } from "../../src/adapters/image-gen/types";
 import { resolveEpisodeTarget, resolveSeriesContext } from "../lib/context";
 
@@ -30,6 +31,11 @@ const VALID_SIZES = new Set([
   "2048x2048",
 ]);
 
+const VALID_MODELS: Record<string, ImageGenModel> = {
+  sunburst: "gpt-image-2.5-sunburst",
+  flare: "gpt-image-2.5-flare",
+};
+
 const HELP = `
 Usage: npx ars generate-image <epId> [options]
 
@@ -38,6 +44,8 @@ Options:
   --size <WxH>                Image size (default: 1024x1024)
                               Valid: ${[...VALID_SIZES].join(", ")}
   --quality <quality>         low | medium | high (default: medium)
+  --model <model>             sunburst | flare (default: sunburst)
+                              sunburst = most capable, flare = fast/cheap
   --count <N>                 Number of images (1-4, default: 1)
   --step <id>                 Step ID for filename prefix
 
@@ -45,6 +53,7 @@ Examples:
   npx ars generate-image ep005 --prompt "a cat on a table"
   npx ars generate-image ep005 --prompt "sunset over mountains" --size 1792x1504 --quality high
   npx ars generate-image ep005 --prompt "diagram of system architecture" --step architecture --count 2
+  npx ars generate-image ep005 --prompt "quick draft icon" --model flare
 `;
 
 export async function run(args: string[]) {
@@ -83,6 +92,16 @@ export async function run(args: string[]) {
     process.exit(1);
   }
 
+  const modelIdx = args.indexOf("--model");
+  const modelFlag = modelIdx !== -1 ? args[modelIdx + 1] : "sunburst";
+
+  if (!VALID_MODELS[modelFlag]) {
+    console.error(`❌ Invalid model "${modelFlag}". Valid: ${Object.keys(VALID_MODELS).join(", ")}`);
+    process.exit(1);
+  }
+
+  const model = VALID_MODELS[modelFlag];
+
   const countIdx = args.indexOf("--count");
   const countStr = countIdx !== -1 ? args[countIdx + 1] : "1";
   const count = parseInt(countStr, 10);
@@ -107,7 +126,7 @@ export async function run(args: string[]) {
     process.exit(1);
   }
 
-  console.log(`🖼️  OpenAI GPT Image 2 (${epId})`);
+  console.log(`🖼️  OpenAI GPT Image 2.5 (${model}) (${epId})`);
   console.log(`📝 Prompt: ${prompt}`);
   console.log(`📐 Size: ${size} | Quality: ${quality} | Count: ${count}`);
 
@@ -116,6 +135,7 @@ export async function run(args: string[]) {
   try {
     const result = await adapter.generate({
       prompt,
+      model,
       size: size as ImageGenSize,
       quality: quality as ImageGenQuality,
       n: count,

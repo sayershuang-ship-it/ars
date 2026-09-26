@@ -55,7 +55,7 @@ export class MiniMaxTTSAdapter implements ITTSAdapter {
     const apiKey = process.env.MINIMAX_API_KEY;
     const groupId = process.env.MINIMAX_GROUP_ID;
     const voiceId = resolveMiniMaxVoiceId(input.speech);
-    const modelId = input.speech.model ?? 'speech-02-hd';
+    const modelId = input.speech.model ?? 'speech-2.8-hd';
     const audioFormat = input.speech.format ?? 'mp3';
     const minimaxOptions = input.speech.providerOptions?.minimax;
 

@@ -87,7 +87,7 @@ export const SERIES_CONFIG: SeriesConfig = {
     provider: 'minimax',
     reviewRequiresNativeTiming: true,
     defaults: {
-      model: 'speech-02-hd',
+      model: 'speech-2.8-hd',
       voice: 'female-shaonv', // Keep a sane default ready for when audio is explicitly enabled
       rate: 1,
       pitch: 0,

@@ -25,11 +25,11 @@ export class OpenAIImageGenAdapter implements IImageGenAdapter {
     const n = Math.min(input.n ?? 1, 4);
 
     const response = await client.images.generate({
-      model: "gpt-image-2",
+      model: input.model ?? "gpt-image-2.5-sunburst",
       prompt: input.prompt,
       n,
       quality,
-      // GPT Image 2 supports additional sizes beyond the SDK's narrow type
+      // GPT Image 2.5 supports additional sizes beyond the SDK's narrow type
       size: size as unknown as Parameters<typeof client.images.generate>[0]["size"],
     });
 

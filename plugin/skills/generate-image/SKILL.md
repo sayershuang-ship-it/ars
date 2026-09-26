@@ -1,12 +1,12 @@
 ---
 name: ars:generate-image
-description: Generate AI images using OpenAI GPT Image 2 for use as episode assets.
-argument-hint: "<epId> --prompt <prompt> [--size WxH] [--quality low|medium|high] [--count N] [--step <id>]"
+description: Generate AI images using OpenAI GPT Image 2.5 for use as episode assets.
+argument-hint: "<epId> --prompt <prompt> [--size WxH] [--quality low|medium|high] [--model sunburst|flare] [--count N] [--step <id>]"
 model: claude-haiku-4-5-20251001
 effort: low
 ---
 
-Generate images via OpenAI GPT Image 2 and save them as static assets under the episode's `public/` directory. The existing `image` card can then reference the generated files.
+Generate images via OpenAI GPT Image 2.5 and save them as static assets under the episode's `public/` directory. The existing `image` card can then reference the generated files.
 
 ## Command
 
@@ -16,7 +16,7 @@ npx ars generate-image <epId> --prompt <prompt> [options]
 
 - `<epId>` only — no series prefix. The active series is resolved from `.ars/config.json`.
 - `--prompt` is required.
-- Options: `--size <WxH>`, `--quality <low|medium|high>`, `--count <1-4>`, `--step <id>`
+- Options: `--size <WxH>`, `--quality <low|medium|high>`, `--model <sunburst|flare>` (default `sunburst`; `flare` is faster/cheaper), `--count <1-4>`, `--step <id>`
 
 ## Valid sizes
 

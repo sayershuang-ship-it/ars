@@ -8,7 +8,7 @@ ARS 是一個 Claude Code 原生的影片製作框架，核心理念：
 - **Plan → Build → Audio → Review → Prepare → Publish** 全流程，每階段由 Agent 執行
 - 使用 [Remotion](https://remotion.dev) 將 TypeScript 程式碼渲染成影片
 - 支援卡片式場景系統（cover、image、code、markdown、mermaid、summary、thumbnail、ticker 等）
-- 整合 MiniMax TTS 語音合成、OpenAI GPT Image 2 圖片生成、YouTube 自動發布
+- 整合 MiniMax TTS 語音合成、OpenAI GPT Image 2.5 圖片生成、YouTube 自動發布
 - 提供 Web Dashboard（`npx ars web`）以圖形介面操作整套工作流
 
 ## 啟動方式
@@ -28,7 +28,7 @@ ars
 | `/ars:episode-create` | 建立新 episode 骨架 |
 | `/ars:build` | 從 plan.md 生成 Remotion 原始碼 |
 | `/ars:new-card` | 為系列產生自訂卡片 |
-| `/ars:generate-image` | 用 OpenAI GPT Image 2 生成素材圖片 |
+| `/ars:generate-image` | 用 OpenAI GPT Image 2.5 生成素材圖片 |
 | `/ars:audio` | 生成 MiniMax TTS 語音 + 字幕 |
 | `/ars:review` | 開啟 ARS Studio 審閱影片 |
 | `/ars:apply-review` | 將 Studio 審閱意見套用回原始碼 |
@@ -75,6 +75,6 @@ ars-image-studio/
 - **語言：** TypeScript + Node.js
 - **影片渲染：** Remotion
 - **語音合成：** MiniMax TTS
-- **AI 圖片：** OpenAI GPT Image 2
+- **AI 圖片：** OpenAI GPT Image 2.5
 - **發布平台：** YouTube Data API v3
 - **Web Dashboard：** Express + React + Vite

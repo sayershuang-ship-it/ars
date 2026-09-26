@@ -11,8 +11,11 @@ export type ImageGenSize =
 
 export type ImageGenQuality = "low" | "medium" | "high";
 
+export type ImageGenModel = "gpt-image-2.5-sunburst" | "gpt-image-2.5-flare";
+
 export type GenerateImageInput = {
   prompt: string;
+  model?: ImageGenModel;
   size?: ImageGenSize;
   quality?: ImageGenQuality;
   n?: number;
